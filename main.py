@@ -96,7 +96,7 @@ def stop(update, context): set_bot_state(False); context.bot.send_message(chat_i
 def status(update, context):
     now = datetime.now().strftime('%H:%M:%S')
     s = get_bot_state()
-    msg = f"📊 Bot is {'🟢 ON' if s else '🔴 OFF'}
+    msg = f"📊 Bot is {'🟢 ON' if s else '🔴 OFF'}\\nTime: {now}\\nSymbol: {SYMBOL}"
 Time: {now}
 Symbol: {SYMBOL}"
     context.bot.send_message(chat_id=update.effective_chat.id, text=msg)
