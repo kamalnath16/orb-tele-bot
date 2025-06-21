@@ -77,10 +77,7 @@ def run_orb_loop():
     while datetime.now().time() < dt_time(9, 30):
         t.sleep(10)
     high, low, vol = get_opening_range(obj)
-    send_telegram(f"📌 ORB:
-High: ₹{high}
-Low: ₹{low}
-Vol: {vol}")
+    send_telegram(f"📌 ORB:\nHigh: ₹{high}\nLow: ₹{low}\nVol: {vol}")
     signal_sent = False
     while datetime.now().time() < dt_time(15, 15):
         if not get_bot_state(): t.sleep(30); continue
