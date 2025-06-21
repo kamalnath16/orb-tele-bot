@@ -23,7 +23,7 @@ TELEGRAM_TOKEN = "8016733264:AAF_gGVuvJzpZUohC9RdFkpyQu6VkHFVWGM"
 CHAT_ID = "6439203415"
 STATE_FILE = "bot_state.json"
 
-# Keep-alive server for Render
+# === KEEP ALIVE SERVER ===
 app = Flask('')
 @app.route('/')
 def home():
@@ -91,14 +91,18 @@ def run_orb_loop():
                 signal_sent = True
         t.sleep(60)
 
-def start(update, context): set_bot_state(True); context.bot.send_message(chat_id=update.effective_chat.id, text="✅ Bot Activated")
-def stop(update, context): set_bot_state(False); context.bot.send_message(chat_id=update.effective_chat.id, text="⛔ Bot Deactivated")
+def start(update, context):
+    set_bot_state(True)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="✅ Bot Activated")
+
+def stop(update, context):
+    set_bot_state(False)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="⛔ Bot Deactivated")
+
 def status(update, context):
     now = datetime.now().strftime('%H:%M:%S')
     s = get_bot_state()
-    msg = f"📊 Bot is {'🟢 ON' if s else '🔴 OFF'}\\nTime: {now}\\nSymbol: {SYMBOL}"
-Time: {now}
-Symbol: {SYMBOL}"
+    msg = f"📊 Bot is {'🟢 ON' if s else '🔴 OFF'}\nTime: {now}\nSymbol: {SYMBOL}"
     context.bot.send_message(chat_id=update.effective_chat.id, text=msg)
 
 def holiday(update, context):
