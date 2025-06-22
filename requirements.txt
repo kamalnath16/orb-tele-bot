@@ -1,0 +1,7 @@
+smartapi-python
+pandas
+numpy
+scikit-learn
+tensorflow
+websocket
+logzero
