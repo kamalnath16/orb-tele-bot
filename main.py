@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
-from smartapi import SmartConnect
+from smartApi import SmartConnect
 from config import API_KEY, CLIENT_ID, PASSWORD, DOB
 
 model = load_model("lstm_model.h5")
